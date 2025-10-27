@@ -1,14 +1,14 @@
 [project]
-name = "hermes"
+name = "ceres"
 version = "1.0.0"
-description = "Hermes - The LLM Dataset Engine. Production-grade SDK for processing tabular datasets using LLMs with reliability, observability, and cost control"
+description = "Ceres - The LLM Dataset Engine. Production-grade SDK for processing tabular datasets using LLMs with reliability, observability, and cost control"
 requires-python = ">=3.10"
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Atik Lahiyane", email = "git@binblok.com"}
 ]
 readme = "README.md"
 license = {text = "MIT"}
-keywords = ["llm", "dataset", "batch-processing", "data-engineering", "llama-index"]
+keywords = ["llm", "dataset", "batch-processing", "data-engineering", "llama-index", "ai", "machine-learning", "data-transformation"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -16,6 +16,8 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 
 dependencies = [
@@ -39,6 +41,12 @@ dependencies = [
     "click>=8.1.0",
     "rich>=13.0.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/ptimizeroracle/Hermes"
+Repository = "https://github.com/ptimizeroracle/Hermes"
+Documentation = "https://github.com/ptimizeroracle/Hermes#readme"
+Issues = "https://github.com/ptimizeroracle/Hermes/issues"
 
 [project.optional-dependencies]
 dev = [
@@ -65,7 +73,8 @@ observability = [
 ]
 
 [project.scripts]
-hermes = "hermes.cli.main:cli"
+ceres = "hermes.cli.main:cli"
+hermes = "hermes.cli.main:cli"  # Keep backward compatibility alias
 
 [build-system]
 requires = ["hatchling"]

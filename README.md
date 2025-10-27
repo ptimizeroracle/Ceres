@@ -1,17 +1,28 @@
-# Hermes - LLM Dataset Engine
+# Ceres - LLM Dataset Engine
 
 ```
- ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄
-▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
-▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌   ▐░▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀
-▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌▐░▌ ▐░▌▐░▌▐░▌          ▐░▌
-▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌ ▐░▐░▌ ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄
-▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌  ▐░▌  ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
-▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀█░█▀▀ ▐░▌   ▀   ▐░▌▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌
-▐░▌       ▐░▌▐░▌          ▐░▌     ▐░▌  ▐░▌       ▐░▌▐░▌                    ▐░▌
-▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░▌      ▐░▌ ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄█░▌
-▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
- ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀
+          _____                    _____                    _____                    _____                    _____
+         /\    \                  /\    \                  /\    \                  /\    \                  /\    \
+        /::\    \                /::\    \                /::\    \                /::\    \                /::\    \
+       /::::\    \              /::::\    \              /::::\    \              /::::\    \              /::::\    \
+      /::::::\    \            /::::::\    \            /::::::\    \            /::::::\    \            /::::::\    \
+     /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \
+    /:::/  \:::\    \        /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \
+   /:::/    \:::\    \      /::::\   \:::\    \      /::::\   \:::\    \      /::::\   \:::\    \       \:::\   \:::\    \
+  /:::/    / \:::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \    ___\:::\   \:::\    \
+ /:::/    /   \:::\    \  /:::/\:::\   \:::\    \  /:::/\:::\   \:::\____\  /:::/\:::\   \:::\    \  /\   \:::\   \:::\    \
+/:::/____/     \:::\____\/:::/  \:::\   \:::\____\/:::/  \:::\   \:::|    |/:::/__\:::\   \:::\____\/::\   \:::\   \:::\____\
+\:::\    \      \::/    /\::/    \:::\  /:::/    /\::/   |::::\  /:::|____|\:::\   \:::\   \::/    /\:::\   \:::\   \::/    /
+ \:::\    \      \/____/  \/____/ \:::\/:::/    /  \/____|:::::\/:::/    /  \:::\   \:::\   \/____/  \:::\   \:::\   \/____/
+  \:::\    \                       \::::::/    /         |:::::::::/    /    \:::\   \:::\    \       \:::\   \:::\    \
+   \:::\    \                       \::::/    /          |::|\::::/    /      \:::\   \:::\____\       \:::\   \:::\____\
+    \:::\    \                      /:::/    /           |::| \::/____/        \:::\   \::/    /        \:::\  /:::/    /
+     \:::\    \                    /:::/    /            |::|  ~|               \:::\   \/____/          \:::\/:::/    /
+      \:::\    \                  /:::/    /             |::|   |                \:::\    \               \::::::/    /
+       \:::\____\                /:::/    /              \::|   |                 \:::\____\               \::::/    /
+        \::/    /                \::/    /                \:|   |                  \::/    /                \::/    /
+         \/____/                  \/____/                  \|___|                   \/____/                  \/____/
+
 ```
 
 [![Tests](https://github.com/ptimizeroracle/Hermes/actions/workflows/ci.yml/badge.svg)](https://github.com/ptimizeroracle/Hermes/actions/workflows/ci.yml)
@@ -100,20 +111,26 @@ print(f"Total cost: ${result.costs.total_cost:.4f}")
 
 ```bash
 # Basic installation
-uv add hermes
+uv add ceres
 
 # With MLX support (Apple Silicon only)
-uv add "hermes[mlx]"
+uv add "ceres[mlx]"
+
+# With observability support
+uv add "ceres[observability]"
 ```
 
 ### Using pip
 
 ```bash
 # Basic installation
-pip install hermes
+pip install ceres
 
 # With MLX support (Apple Silicon only)
-pip install "hermes[mlx]"
+pip install "ceres[mlx]"
+
+# With observability support
+pip install "ceres[observability]"
 ```
 
 ### Set up API keys
@@ -443,13 +460,13 @@ result = (
 
 ## CLI Usage
 
-Hermes includes a powerful command-line interface for processing datasets without writing code.
+Ceres includes a powerful command-line interface for processing datasets without writing code.
 
 ### List Available Providers
 
 ```bash
 # See all supported LLM providers
-hermes list-providers
+ceres list-providers
 ```
 
 This shows:
@@ -463,25 +480,25 @@ This shows:
 
 ```bash
 # Basic usage
-hermes process --config config.yaml
+ceres process --config config.yaml
 
 # Override input/output
-hermes process --config config.yaml --input data.csv --output results.csv
+ceres process --config config.yaml --input data.csv --output results.csv
 
 # Override provider and model
-hermes process --config config.yaml --provider groq --model llama-3.3-70b-versatile
+ceres process --config config.yaml --provider groq --model llama-3.3-70b-versatile
 
 # Set budget limit
-hermes process --config config.yaml --max-budget 10.0
+ceres process --config config.yaml --max-budget 10.0
 
 # Dry run (estimate only, don't execute)
-hermes process --config config.yaml --dry-run
+ceres process --config config.yaml --dry-run
 
 # Estimate cost
-hermes estimate --config config.yaml --input data.csv
+ceres estimate --config config.yaml --input data.csv
 
 # Inspect data
-hermes inspect --input data.csv --head 10
+ceres inspect --input data.csv --head 10
 ```
 
 ### Example Config File
