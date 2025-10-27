@@ -5,14 +5,14 @@ from decimal import Decimal
 import pandas as pd
 import pytest
 
-from hermes.core.models import LLMResponse, PromptBatch, RowMetadata
-from hermes.core.specifications import (
+from ceres.core.models import LLMResponse, PromptBatch, RowMetadata
+from ceres.core.specifications import (
     DatasetSpec,
     DataSourceType,
     PromptSpec,
 )
-from hermes.orchestration import ExecutionContext
-from hermes.stages import (
+from ceres.orchestration import ExecutionContext
+from ceres.stages import (
     DataLoaderStage,
     JSONParser,
     LLMInvocationStage,
@@ -156,7 +156,7 @@ class TestLLMInvocationStage:
 
     def test_llm_invocation_with_mock_client(self):
         """Test LLM invocation with mock client."""
-        from hermes.core.specifications import LLMProvider, LLMSpec
+        from ceres.core.specifications import LLMProvider, LLMSpec
 
         mock_client = MockLLMClient(
             spec=LLMSpec(provider=LLMProvider.OPENAI, model="gpt-4o-mini"),
@@ -184,7 +184,7 @@ class TestLLMInvocationStage:
 
     def test_llm_invocation_maintains_order(self):
         """Test LLM invocation maintains response order."""
-        from hermes.core.specifications import LLMProvider, LLMSpec
+        from ceres.core.specifications import LLMProvider, LLMSpec
 
         mock_client = MockLLMClient(
             spec=LLMSpec(provider=LLMProvider.OPENAI, model="gpt-4o-mini"),
@@ -272,7 +272,7 @@ class TestResponseParserStage:
 
     def test_response_parser_stage_with_json(self):
         """Test response parser stage with JSON parser."""
-        from hermes.core.models import ResponseBatch
+        from ceres.core.models import ResponseBatch
 
         parser = JSONParser()
         stage = ResponseParserStage(parser=parser, output_columns=["name", "value"])

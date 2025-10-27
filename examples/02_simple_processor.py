@@ -8,7 +8,7 @@ for simple use cases.
 # Create sample CSV (in real use, this would be an existing file)
 import pandas as pd
 
-from hermes import DatasetProcessor
+from ceres import DatasetProcessor
 
 sample_data = pd.DataFrame(
     {

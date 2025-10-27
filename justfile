@@ -1,4 +1,4 @@
-# Hermes - LLM Dataset Engine
+# Ceres - LLM Dataset Engine
 # Justfile for common development tasks
 
 # Default recipe to display help
@@ -34,7 +34,7 @@ test-integration:
 # Run tests with coverage report
 test-coverage:
     @echo "📊 Running tests with coverage..."
-    uv run pytest --cov=hermes --cov-report=html --cov-report=term
+    uv run pytest --cov=ceres --cov-report=html --cov-report=term
 
 # Run specific test file or test
 test-file FILE:
@@ -54,19 +54,19 @@ test-quick:
 # Lint the codebase
 lint:
     @echo "🔍 Linting code..."
-    uv run ruff check hermes/
+    uv run ruff check ceres/
     uv run ruff check tests/
 
 # Format the code
 format:
     @echo "✨ Formatting code..."
-    uv run ruff format hermes/
+    uv run ruff format ceres/
     uv run ruff format tests/
 
 # Type check with mypy
 typecheck:
     @echo "🔎 Type checking..."
-    uv run mypy hermes/
+    uv run mypy ceres/
 
 # Run all quality checks (lint + format check + typecheck)
 check: lint typecheck
@@ -98,28 +98,28 @@ install:
 
 # Run CLI help
 cli-help:
-    @echo "📖 Hermes CLI Help"
-    uv run hermes --help
+    @echo "📖 Ceres CLI Help"
+    uv run ceres --help
 
 # Inspect a data file
 cli-inspect FILE:
     @echo "🔍 Inspecting {{FILE}}..."
-    uv run hermes inspect -i {{FILE}}
+    uv run ceres inspect -i {{FILE}}
 
 # Validate a config file
 cli-validate CONFIG:
     @echo "✅ Validating {{CONFIG}}..."
-    uv run hermes validate --config {{CONFIG}}
+    uv run ceres validate --config {{CONFIG}}
 
 # Process data with config
 cli-process CONFIG:
     @echo "⚙️  Processing with {{CONFIG}}..."
-    @export $(cat .env | xargs) && uv run hermes process --config {{CONFIG}}
+    @export $(cat .env | xargs) && uv run ceres process --config {{CONFIG}}
 
 # Estimate cost for a config
 cli-estimate CONFIG:
     @echo "💰 Estimating cost for {{CONFIG}}..."
-    @export $(cat .env | xargs) && uv run hermes estimate --config {{CONFIG}}
+    @export $(cat .env | xargs) && uv run ceres estimate --config {{CONFIG}}
 
 # Run a simple example
 example NAME:
@@ -134,10 +134,10 @@ quickstart:
 groq-example:
     @just example 05_groq_example
 
-# Start interactive Python shell with hermes loaded
+# Start interactive Python shell with ceres loaded
 shell:
     @echo "🐍 Starting Python shell..."
-    @export $(cat .env | xargs) && uv run python -c "import hermes; from hermes import PipelineBuilder; print('Hermes loaded! Use PipelineBuilder to get started.'); import IPython; IPython.embed()"
+    @export $(cat .env | xargs) && uv run python -c "import ceres; from ceres import PipelineBuilder; print('Ceres loaded! Use PipelineBuilder to get started.'); import IPython; IPython.embed()"
 
 # Generate documentation
 docs:
@@ -152,10 +152,10 @@ e2e-test:
 # Check test coverage percentage
 coverage-report:
     @echo "📊 Coverage Report:"
-    uv run pytest --cov=hermes --cov-report=term-missing --quiet
+    uv run pytest --cov=ceres --cov-report=term-missing --quiet
     @echo ""
     @echo "📁 Detailed HTML report: htmlcov/index.html"
-    uv run pytest --cov=hermes --cov-report=html --quiet
+    uv run pytest --cov=ceres --cov-report=html --quiet
 
 # Open coverage report in browser
 coverage-open: coverage-report
@@ -182,9 +182,9 @@ stats:
     @echo "📊 Project Statistics"
     @echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     @echo "📁 Total Python files:"
-    @find hermes -name "*.py" | wc -l
-    @echo "📝 Lines of code (hermes/):"
-    @find hermes -name "*.py" -exec wc -l {} + | tail -1 | awk '{print $1}'
+    @find ceres -name "*.py" | wc -l
+    @echo "📝 Lines of code (ceres/):"
+    @find ceres -name "*.py" -exec wc -l {} + | tail -1 | awk '{print $1}'
     @echo "🧪 Test files:"
     @find tests -name "*.py" | wc -l
     @echo "📝 Lines of test code:"

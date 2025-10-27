@@ -18,10 +18,10 @@ from typing import Any
 
 import pandas as pd
 
-from hermes import PipelineBuilder
-from hermes.adapters.llm_client import LLMClient
-from hermes.core.models import LLMResponse
-from hermes.core.specifications import LLMSpec
+from ceres import PipelineBuilder
+from ceres.adapters.llm_client import LLMClient
+from ceres.core.models import LLMResponse
+from ceres.core.specifications import LLMSpec
 
 
 class MyCustomLLMClient(LLMClient):

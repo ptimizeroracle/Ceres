@@ -3,7 +3,7 @@
 import time
 from decimal import Decimal
 
-from hermes.utils import CostTracker
+from ceres.utils import CostTracker
 
 
 class TestCostTracker:

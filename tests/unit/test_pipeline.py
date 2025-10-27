@@ -4,8 +4,8 @@ from decimal import Decimal
 
 import pandas as pd
 
-from hermes.api.pipeline import Pipeline
-from hermes.core.specifications import (
+from ceres.api.pipeline import Pipeline
+from ceres.core.specifications import (
     DatasetSpec,
     DataSourceType,
     LLMProvider,
@@ -127,7 +127,7 @@ class TestPipeline:
 
     def test_add_observer(self):
         """Test adding observers to pipeline."""
-        from hermes.orchestration import LoggingObserver
+        from ceres.orchestration import LoggingObserver
 
         specs = PipelineSpecifications(
             dataset=DatasetSpec(
@@ -148,7 +148,7 @@ class TestPipeline:
 
     def test_pipeline_with_executor(self):
         """Test pipeline with custom executor."""
-        from hermes.orchestration import SyncExecutor
+        from ceres.orchestration import SyncExecutor
 
         specs = PipelineSpecifications(
             dataset=DatasetSpec(

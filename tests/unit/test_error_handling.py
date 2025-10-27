@@ -1,11 +1,11 @@
 """Unit tests for error handling."""
 
-from hermes.core.error_handler import (
+from ceres.core.error_handler import (
     ErrorAction,
     ErrorDecision,
     ErrorHandler,
 )
-from hermes.core.specifications import ErrorPolicy
+from ceres.core.specifications import ErrorPolicy
 
 
 class TestErrorHandler:
@@ -96,7 +96,7 @@ class TestErrorRecovery:
 
     def test_retry_with_backoff(self):
         """Test retry with exponential backoff."""
-        from hermes.utils import RetryHandler
+        from ceres.utils import RetryHandler
 
         handler = RetryHandler(
             max_attempts=3,

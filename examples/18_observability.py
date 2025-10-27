@@ -5,19 +5,19 @@ This example demonstrates how to enable distributed tracing for
 production debugging and performance monitoring.
 
 Requirements:
-    pip install hermes[observability]
+    pip install ceres[observability]
 """
 
 import pandas as pd
 
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 # Example 1: Console Exporter (Development/Testing)
 print("=" * 80)
 print("Example 1: Console Exporter (for development)")
 print("=" * 80)
 
-from hermes.observability import disable_tracing, enable_tracing
+from ceres.observability import disable_tracing, enable_tracing
 
 # Enable tracing with console output
 enable_tracing(exporter="console")
@@ -138,7 +138,7 @@ Production Debugging Benefits:
    - Stage 3: $0.00
 
 4. **Distributed systems**: Trace requests across services
-   - Frontend → API → Hermes Pipeline → LLM → Database
+   - Frontend → API → Ceres Pipeline → LLM → Database
    - Single trace ID connects all steps
 
 5. **Performance trends**: Historical analysis

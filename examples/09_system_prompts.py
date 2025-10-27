@@ -12,7 +12,7 @@ Use cases span multiple industries:
 
 import pandas as pd
 
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 # Sample customer feedback data
 data = pd.DataFrame(
@@ -137,7 +137,7 @@ def example_3_json_extraction_with_system():
     print("EXAMPLE 3: Structured Output with System Prompt")
     print("=" * 70)
 
-    from hermes.stages import JSONParser
+    from ceres.stages import JSONParser
 
     products = pd.DataFrame(
         {
@@ -207,7 +207,7 @@ processing:
 
     import tempfile
 
-    from hermes.config import ConfigLoader
+    from ceres.config import ConfigLoader
 
     # Write config to temp file
     with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml", delete=False) as f:
@@ -231,7 +231,7 @@ processing:
         }
     )
 
-    from hermes.api import Pipeline
+    from ceres.api import Pipeline
 
     pipeline = Pipeline(specs, dataframe=df)
     result = pipeline.execute()

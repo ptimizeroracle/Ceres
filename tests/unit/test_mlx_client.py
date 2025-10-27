@@ -10,9 +10,9 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from hermes.adapters.llm_client import MLXClient, create_llm_client
-from hermes.core.models import LLMResponse
-from hermes.core.specifications import LLMProvider, LLMSpec
+from ceres.adapters.llm_client import MLXClient, create_llm_client
+from ceres.core.models import LLMResponse
+from ceres.core.specifications import LLMProvider, LLMSpec
 
 
 class TestMLXClient:
@@ -256,7 +256,7 @@ class TestMLXClientFactory:
 
     def test_factory_backward_compatible(self):
         """Factory should still work with existing providers."""
-        from hermes.adapters.llm_client import GroqClient
+        from ceres.adapters.llm_client import GroqClient
 
         spec = LLMSpec(
             provider=LLMProvider.GROQ,
@@ -264,7 +264,7 @@ class TestMLXClientFactory:
             api_key="test",  # pragma: allowlist secret
         )
 
-        with patch("hermes.adapters.llm_client.Groq"):
+        with patch("ceres.adapters.llm_client.Groq"):
             client = create_llm_client(spec)
             assert isinstance(client, GroqClient)
 

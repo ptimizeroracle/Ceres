@@ -38,6 +38,6 @@ composition:
 # 5. Final output has all 3 new columns
 
 # Usage (once config files are created):
-#   from hermes.api import PipelineComposer
+#   from ceres.api import PipelineComposer
 #   composer = PipelineComposer.from_yaml("examples/composition_example.yaml")
 #   result = composer.execute()

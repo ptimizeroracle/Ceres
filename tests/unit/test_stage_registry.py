@@ -6,8 +6,8 @@ Tests the plugin system for custom pipeline stages.
 
 import pytest
 
-from hermes.stages.pipeline_stage import PipelineStage
-from hermes.stages.stage_registry import StageRegistry, stage
+from ceres.stages.pipeline_stage import PipelineStage
+from ceres.stages.stage_registry import StageRegistry, stage
 
 
 class TestStageRegistry:
@@ -122,7 +122,7 @@ class TestStageRegistry:
 
     def test_create_instance_from_registry(self):
         """Should create working instances from registered stages."""
-        from hermes.stages.stage_registry import stage as stage_decorator
+        from ceres.stages.stage_registry import stage as stage_decorator
 
         @stage_decorator("test_instance")
         class TestStage(PipelineStage):
@@ -199,7 +199,7 @@ class TestStageRegistry:
 
     def test_stage_with_complex_initialization(self):
         """Should support stages with complex initialization."""
-        from hermes.stages.stage_registry import stage as stage_decorator
+        from ceres.stages.stage_registry import stage as stage_decorator
 
         @stage_decorator("complex_stage")
         class ComplexStage(PipelineStage):

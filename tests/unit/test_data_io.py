@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from hermes.adapters.data_io import (
+from ceres.adapters.data_io import (
     CSVReader,
     CSVWriter,
     DataFrameReader,
@@ -16,7 +16,7 @@ from hermes.adapters.data_io import (
     create_data_reader,
     create_data_writer,
 )
-from hermes.core.specifications import DataSourceType
+from ceres.core.specifications import DataSourceType
 
 
 class TestDataReaders:
@@ -556,7 +556,7 @@ class TestCheckpointStorage:
         """Test saving and loading checkpoints."""
         from uuid import uuid4
 
-        from hermes.adapters import LocalFileCheckpointStorage
+        from ceres.adapters import LocalFileCheckpointStorage
 
         with tempfile.TemporaryDirectory() as temp_dir:
             storage = LocalFileCheckpointStorage(Path(temp_dir))
@@ -582,7 +582,7 @@ class TestCheckpointStorage:
         """Test listing checkpoints."""
         from uuid import uuid4
 
-        from hermes.adapters import LocalFileCheckpointStorage
+        from ceres.adapters import LocalFileCheckpointStorage
 
         with tempfile.TemporaryDirectory() as temp_dir:
             storage = LocalFileCheckpointStorage(Path(temp_dir))
@@ -600,7 +600,7 @@ class TestCheckpointStorage:
         """Test deleting checkpoints."""
         from uuid import uuid4
 
-        from hermes.adapters import LocalFileCheckpointStorage
+        from ceres.adapters import LocalFileCheckpointStorage
 
         with tempfile.TemporaryDirectory() as temp_dir:
             storage = LocalFileCheckpointStorage(Path(temp_dir))

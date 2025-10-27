@@ -9,7 +9,7 @@ import os
 import pandas as pd
 import pytest
 
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 
 def get_provider_configs():

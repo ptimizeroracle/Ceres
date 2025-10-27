@@ -33,11 +33,11 @@ jobs:
 
     - name: Run linter
       run: |
-        uv run ruff check hermes/ tests/
+        uv run ruff check ceres/ tests/
 
     - name: Run formatter check
       run: |
-        uv run ruff format --check hermes/ tests/
+        uv run ruff format --check ceres/ tests/
 
     - name: Run unit tests only
       run: |
@@ -75,11 +75,11 @@ jobs:
 
     - name: Run linter
       run: |
-        uv run ruff check hermes/ tests/ || true
+        uv run ruff check ceres/ tests/ || true
 
     - name: Run type checker
       run: |
-        uv run mypy hermes/ || true
+        uv run mypy ceres/ || true
 
     - name: Run unit tests
       run: |
@@ -97,7 +97,7 @@ jobs:
       env:
         GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       run: |
-        uv run pytest --cov=hermes --cov-report=xml --cov-report=term
+        uv run pytest --cov=ceres --cov-report=xml --cov-report=term
 
     - name: Upload coverage to Codecov
       if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.11'

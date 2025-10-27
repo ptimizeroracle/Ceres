@@ -11,8 +11,8 @@ from decimal import Decimal
 
 import pandas as pd
 
-from hermes import PipelineBuilder
-from hermes.core.specifications import ErrorPolicy
+from ceres import PipelineBuilder
+from ceres.core.specifications import ErrorPolicy
 
 
 class TestPreprocessingE2E:
@@ -171,7 +171,7 @@ class TestQualityValidationE2E:
         from datetime import datetime
         from uuid import uuid4
 
-        from hermes.core.models import (
+        from ceres.core.models import (
             CostEstimate,
             ExecutionResult,
             ProcessingStats,
@@ -250,7 +250,7 @@ class TestFullPipelineE2E:
 
     def test_config_driven_preprocessing_and_retry(self):
         """Should work when configured via YAML/dict."""
-        from hermes.core.specifications import (
+        from ceres.core.specifications import (
             DatasetSpec,
             DataSourceType,
             LLMProvider,
@@ -301,8 +301,8 @@ class TestRegressionPrevention:
 
     def test_pipeline_init_without_observers(self):
         """Should initialize Pipeline without observers parameter (regression test)."""
-        from hermes.api.pipeline import Pipeline
-        from hermes.core.specifications import (
+        from ceres.api.pipeline import Pipeline
+        from ceres.core.specifications import (
             DatasetSpec,
             DataSourceType,
             LLMProvider,

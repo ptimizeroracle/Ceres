@@ -10,14 +10,14 @@ from unittest.mock import Mock, patch
 
 import pandas as pd
 
-from hermes import PipelineBuilder
-from hermes.core.models import LLMResponse
+from ceres import PipelineBuilder
+from ceres.core.models import LLMResponse
 
 
 class TestAutoRetryActualExecution:
     """Integration tests that actually execute retry logic."""
 
-    @patch("hermes.adapters.provider_registry.ProviderRegistry.get")
+    @patch("ceres.adapters.provider_registry.ProviderRegistry.get")
     def test_retry_processes_only_failed_rows_not_all(self, mock_get):
         """
         CRITICAL TEST: Verify retry processes ONLY failed rows.
@@ -124,7 +124,7 @@ class TestAutoRetryActualExecution:
         assert quality.valid_outputs == 10  # All should be valid after retry
         assert quality.success_rate == 100.0
 
-    @patch("hermes.adapters.provider_registry.ProviderRegistry.get")
+    @patch("ceres.adapters.provider_registry.ProviderRegistry.get")
     def test_retry_respects_max_attempts(self, mock_get):
         """Should stop retrying after max_retry_attempts."""
         df = pd.DataFrame({"text": ["row1", "row2", "row3"]})

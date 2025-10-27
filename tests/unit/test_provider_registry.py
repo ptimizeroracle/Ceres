@@ -6,10 +6,10 @@ Tests the plugin system for custom LLM providers.
 
 import pytest
 
-from hermes.adapters.llm_client import LLMClient
-from hermes.adapters.provider_registry import ProviderRegistry, provider
-from hermes.core.models import LLMResponse
-from hermes.core.specifications import LLMSpec
+from ceres.adapters.llm_client import LLMClient
+from ceres.adapters.provider_registry import ProviderRegistry, provider
+from ceres.core.models import LLMResponse
+from ceres.core.specifications import LLMSpec
 
 
 class TestProviderRegistry:
@@ -184,7 +184,7 @@ class TestProviderRegistry:
         # Get class and instantiate
         client_class = ProviderRegistry.get("test_instance")
         # Use a valid LLMProvider enum value for validation, but the client won't care
-        from hermes.core.specifications import LLMProvider
+        from ceres.core.specifications import LLMProvider
 
         spec = LLMSpec(provider=LLMProvider.OPENAI, model="test-model")
         client = client_class(spec)
@@ -241,7 +241,7 @@ class TestProviderRegistry:
 
     def test_builtin_providers_are_functional(self):
         """Should have all built-in providers registered and instantiable."""
-        from hermes.adapters.llm_client import (
+        from ceres.adapters.llm_client import (
             AnthropicClient,
             AzureOpenAIClient,
             GroqClient,

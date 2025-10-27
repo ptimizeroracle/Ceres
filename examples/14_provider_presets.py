@@ -13,7 +13,7 @@ Key Benefits:
 
 import pandas as pd
 
-from hermes.core.specifications import LLMProviderPresets
+from ceres.core.specifications import LLMProviderPresets
 
 # Sample data
 df = pd.DataFrame(

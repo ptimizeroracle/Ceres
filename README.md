@@ -449,7 +449,7 @@ Hermes includes a powerful command-line interface for processing datasets withou
 
 ```bash
 # See all supported LLM providers
-hermes list-providers
+ceres list-providers
 ```
 
 This shows:
@@ -463,25 +463,25 @@ This shows:
 
 ```bash
 # Basic usage
-hermes process --config config.yaml
+ceres process --config config.yaml
 
 # Override input/output
-hermes process --config config.yaml --input data.csv --output results.csv
+ceres process --config config.yaml --input data.csv --output results.csv
 
 # Override provider and model
-hermes process --config config.yaml --provider groq --model llama-3.3-70b-versatile
+ceres process --config config.yaml --provider groq --model llama-3.3-70b-versatile
 
 # Set budget limit
-hermes process --config config.yaml --max-budget 10.0
+ceres process --config config.yaml --max-budget 10.0
 
 # Dry run (estimate only, don't execute)
-hermes process --config config.yaml --dry-run
+ceres process --config config.yaml --dry-run
 
 # Estimate cost
-hermes estimate --config config.yaml --input data.csv
+ceres estimate --config config.yaml --input data.csv
 
 # Inspect data
-hermes inspect --input data.csv --head 10
+ceres inspect --input data.csv --head 10
 ```
 
 ### Example Config File

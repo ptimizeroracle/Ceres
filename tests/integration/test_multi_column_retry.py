@@ -10,14 +10,14 @@ from unittest.mock import Mock, patch
 
 import pandas as pd
 
-from hermes.api import PipelineBuilder
-from hermes.core.models import LLMResponse
+from ceres.api import PipelineBuilder
+from ceres.core.models import LLMResponse
 
 
 class TestMultiColumnRetry:
     """Test auto-retry with multiple output columns."""
 
-    @patch("hermes.adapters.provider_registry.ProviderRegistry.get")
+    @patch("ceres.adapters.provider_registry.ProviderRegistry.get")
     def test_retry_detects_failures_in_all_output_columns(self, mock_get):
         """
         CRITICAL TEST: Verify retry detects failures across ALL output columns.
@@ -94,7 +94,7 @@ class TestMultiColumnRetry:
         mock_get.return_value = mock_client_class
 
         # Build pipeline with auto-retry and MULTIPLE output columns
-        from hermes.stages import JSONParser
+        from ceres.stages import JSONParser
 
         pipeline = (
             PipelineBuilder.create()
@@ -144,7 +144,7 @@ class TestMultiColumnRetry:
         assert quality.null_outputs == 0
         assert quality.success_rate == 100.0
 
-    @patch("hermes.adapters.provider_registry.ProviderRegistry.get")
+    @patch("ceres.adapters.provider_registry.ProviderRegistry.get")
     def test_retry_continues_until_all_columns_valid_or_max_attempts(self, mock_get):
         """
         Test that retry continues for all columns until max attempts.
@@ -203,7 +203,7 @@ class TestMultiColumnRetry:
         mock_client_class = Mock(return_value=mock_client)
         mock_get.return_value = mock_client_class
 
-        from hermes.stages import JSONParser
+        from ceres.stages import JSONParser
 
         pipeline = (
             PipelineBuilder.create()

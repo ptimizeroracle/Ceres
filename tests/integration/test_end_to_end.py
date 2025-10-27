@@ -11,8 +11,8 @@ from tempfile import TemporaryDirectory
 import pandas as pd
 import pytest
 
-from hermes import PipelineBuilder
-from hermes.stages import JSONParser
+from ceres import PipelineBuilder
+from ceres.stages import JSONParser
 
 
 @pytest.mark.integration

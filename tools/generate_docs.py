@@ -219,7 +219,7 @@ def generate_feature_map(features: list[dict]) -> str:
     Generate Mermaid mind map showing feature-to-component mappings.
     """
     lines = ["```mermaid", "mindmap"]
-    lines.append("  root((Hermes<br/>Features))")
+    lines.append("  root((Ceres<br/>Features))")
 
     for feature in features:
         name = feature["name"]
@@ -245,7 +245,7 @@ def generate_layer_architecture(layers: list[dict]) -> str:
     Generate detailed layer architecture diagram.
     """
     lines = ["```mermaid", "graph TB"]
-    lines.append('    subgraph "Hermes Architecture"')
+    lines.append('    subgraph "Ceres Architecture"')
 
     # Reverse order (API at top, Utils at bottom)
     layer_order = ["api", "orchestration", "stages", "adapters", "core", "utils"]
@@ -286,7 +286,7 @@ def generate_consolidated_doc(model: dict[str, Any], diagrams: dict[str, str]) -
     lines = []
 
     # Header
-    lines.append("# Hermes Architecture")
+    lines.append("# Ceres Architecture")
     lines.append("")
     lines.append("**Auto-generated from `docs/architecture/model.yaml`**")
     lines.append("")
@@ -318,7 +318,7 @@ def generate_consolidated_doc(model: dict[str, Any], diagrams: dict[str, str]) -
     lines.append("## Overview")
     lines.append("")
     lines.append(
-        "Hermes follows a **5-layer clean architecture** with strict dependency rules:"
+        "Ceres follows a **5-layer clean architecture** with strict dependency rules:"
     )
     lines.append("")
     lines.append("- **Utils**: Cross-cutting utilities (no dependencies)")
@@ -453,7 +453,7 @@ def generate_consolidated_doc(model: dict[str, Any], diagrams: dict[str, str]) -
 
 def main():
     """Generate all architecture documentation."""
-    print("Hermes Architecture Documentation Generator")
+    print("Ceres Architecture Documentation Generator")
     print("=" * 60)
 
     # Create diagrams directory if it doesn't exist

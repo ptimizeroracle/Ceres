@@ -10,10 +10,10 @@ from typing import Any
 import pandas as pd
 import pytest
 
-from hermes.adapters.llm_client import LLMClient
-from hermes.api.pipeline_builder import PipelineBuilder
-from hermes.core.models import LLMResponse
-from hermes.core.specifications import LLMSpec
+from ceres.adapters.llm_client import LLMClient
+from ceres.api.pipeline_builder import PipelineBuilder
+from ceres.core.models import LLMResponse
+from ceres.core.specifications import LLMSpec
 
 
 class MockCustomClient(LLMClient):

@@ -10,13 +10,13 @@ class TestTracingSetup:
 
     def test_tracing_disabled_by_default(self):
         """Tracing should be disabled by default (opt-in)."""
-        from hermes.observability import is_tracing_enabled
+        from ceres.observability import is_tracing_enabled
 
         assert is_tracing_enabled() is False
 
     def test_enable_tracing_with_console_exporter(self):
         """Should enable tracing with console exporter."""
-        from hermes.observability import (
+        from ceres.observability import (
             disable_tracing,
             enable_tracing,
             is_tracing_enabled,
@@ -30,7 +30,7 @@ class TestTracingSetup:
 
     def test_enable_tracing_with_jaeger_exporter(self):
         """Should enable tracing with Jaeger exporter."""
-        from hermes.observability import (
+        from ceres.observability import (
             disable_tracing,
             enable_tracing,
             is_tracing_enabled,
@@ -46,7 +46,7 @@ class TestTracingSetup:
 
     def test_disable_tracing_cleanup(self):
         """Should properly cleanup when disabling tracing."""
-        from hermes.observability import (
+        from ceres.observability import (
             disable_tracing,
             enable_tracing,
             is_tracing_enabled,
@@ -64,7 +64,7 @@ class TestPIISanitization:
 
     def test_pii_sanitization_enabled_by_default(self):
         """Prompts should be sanitized by default (not exposed in spans)."""
-        from hermes.observability.sanitizer import sanitize_prompt
+        from ceres.observability.sanitizer import sanitize_prompt
 
         prompt = "User email: john@example.com, process this"
         sanitized = sanitize_prompt(prompt, include_prompts=False)
@@ -76,7 +76,7 @@ class TestPIISanitization:
 
     def test_pii_sanitization_opt_in(self):
         """Should include prompts when explicitly enabled."""
-        from hermes.observability.sanitizer import sanitize_prompt
+        from ceres.observability.sanitizer import sanitize_prompt
 
         prompt = "User email: john@example.com, process this"
         not_sanitized = sanitize_prompt(prompt, include_prompts=True)
@@ -86,7 +86,7 @@ class TestPIISanitization:
 
     def test_sanitize_response(self):
         """Response sanitization should work same as prompt sanitization."""
-        from hermes.observability.sanitizer import sanitize_response
+        from ceres.observability.sanitizer import sanitize_response
 
         response = "Sensitive data: SSN 123-45-6789"
 
@@ -104,7 +104,7 @@ class TestTracingObserver:
 
     def test_tracing_observer_creation(self):
         """Should create TracingObserver instance."""
-        from hermes.observability import TracingObserver
+        from ceres.observability import TracingObserver
 
         observer = TracingObserver(include_prompts=False)
         assert observer is not None
@@ -113,18 +113,18 @@ class TestTracingObserver:
 
     def test_tracing_observer_with_prompts_enabled(self):
         """Should support include_prompts flag."""
-        from hermes.observability import TracingObserver
+        from ceres.observability import TracingObserver
 
         observer = TracingObserver(include_prompts=True)
         assert observer._include_prompts is True
 
-    @patch("hermes.observability.observer.is_tracing_enabled")
-    @patch("hermes.observability.observer.get_tracer")
+    @patch("ceres.observability.observer.is_tracing_enabled")
+    @patch("ceres.observability.observer.get_tracer")
     def test_observer_creates_no_spans_when_disabled(
         self, mock_get_tracer, mock_is_enabled
     ):
         """Observer should not create spans when tracing is disabled."""
-        from hermes.observability import TracingObserver
+        from ceres.observability import TracingObserver
 
         mock_is_enabled.return_value = False
 
@@ -138,11 +138,11 @@ class TestTracingObserver:
 
         mock_get_tracer.assert_not_called()
 
-    @patch("hermes.observability.observer.is_tracing_enabled")
-    @patch("hermes.observability.observer.get_tracer")
+    @patch("ceres.observability.observer.is_tracing_enabled")
+    @patch("ceres.observability.observer.get_tracer")
     def test_observer_creates_span_when_enabled(self, mock_get_tracer, mock_is_enabled):
         """Observer should create spans when tracing is enabled."""
-        from hermes.observability import TracingObserver
+        from ceres.observability import TracingObserver
 
         mock_is_enabled.return_value = True
         mock_tracer = Mock()
@@ -169,11 +169,11 @@ class TestTracingObserver:
 class TestStageExecutionTracing:
     """Test stage execution creates appropriate spans."""
 
-    @patch("hermes.observability.observer.is_tracing_enabled")
-    @patch("hermes.observability.observer.get_tracer")
+    @patch("ceres.observability.observer.is_tracing_enabled")
+    @patch("ceres.observability.observer.get_tracer")
     def test_stage_execution_creates_span(self, mock_get_tracer, mock_is_enabled):
         """Each stage execution should create a span."""
-        from hermes.observability import TracingObserver
+        from ceres.observability import TracingObserver
 
         mock_is_enabled.return_value = True
         mock_tracer = Mock()
@@ -192,11 +192,11 @@ class TestStageExecutionTracing:
         # Should create span with stage name
         mock_tracer.start_span.assert_called_once_with("stage.TestStage")
 
-    @patch("hermes.observability.observer.is_tracing_enabled")
-    @patch("hermes.observability.observer.get_tracer")
+    @patch("ceres.observability.observer.is_tracing_enabled")
+    @patch("ceres.observability.observer.get_tracer")
     def test_stage_error_records_exception(self, mock_get_tracer, mock_is_enabled):
         """Stage errors should be recorded in span."""
-        from hermes.observability import TracingObserver
+        from ceres.observability import TracingObserver
 
         mock_is_enabled.return_value = True
         mock_tracer = Mock()
@@ -220,10 +220,10 @@ class TestStageExecutionTracing:
 class TestExportFailureHandling:
     """Test graceful degradation when trace export fails."""
 
-    @patch("hermes.observability.tracer.BatchSpanProcessor")
+    @patch("ceres.observability.tracer.BatchSpanProcessor")
     def test_export_failure_does_not_break_pipeline(self, mock_processor):
         """Pipeline should continue even if trace export fails."""
-        from hermes.observability import disable_tracing, enable_tracing
+        from ceres.observability import disable_tracing, enable_tracing
 
         # Simulate export failure
         mock_processor.side_effect = Exception("Export failed")

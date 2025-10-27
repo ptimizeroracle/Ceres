@@ -4,7 +4,7 @@ import time
 
 import pytest
 
-from hermes.utils import RateLimiter
+from ceres.utils import RateLimiter
 
 
 class TestRateLimiter:

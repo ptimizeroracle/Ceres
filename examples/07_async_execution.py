@@ -9,7 +9,7 @@ import asyncio
 
 import pandas as pd
 
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 # Sample data
 data = pd.DataFrame(
@@ -69,7 +69,7 @@ async def fastapi_example():
 
     Usage:
         from fastapi import FastAPI
-        from hermes import PipelineBuilder
+        from ceres import PipelineBuilder
 
         app = FastAPI()
 

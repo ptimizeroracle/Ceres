@@ -6,7 +6,7 @@ local LLM inference on M-series chips with the Qwen3 model.
 
 Requirements:
 - macOS with Apple Silicon (M1/M2/M3/M4)
-- pip install hermes[mlx]
+- pip install ceres[mlx]
 - HuggingFace account (for model downloads)
 
 Benefits:
@@ -17,7 +17,7 @@ Benefits:
 
 Setup:
 1. Install MLX extra:
-   pip install hermes[mlx]
+   pip install ceres[mlx]
 
 2. Set HuggingFace token (for first-time model download):
    export HUGGING_FACE_HUB_TOKEN="your_token_here"
@@ -32,7 +32,7 @@ import platform
 
 import pandas as pd
 
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 if platform.system() != "Darwin":
     print("❌ This example requires macOS with Apple Silicon")

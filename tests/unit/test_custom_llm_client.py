@@ -9,9 +9,9 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from hermes.adapters.llm_client import OpenAICompatibleClient, create_llm_client
-from hermes.core.models import LLMResponse
-from hermes.core.specifications import LLMProvider, LLMSpec
+from ceres.adapters.llm_client import OpenAICompatibleClient, create_llm_client
+from ceres.core.models import LLMResponse
+from ceres.core.specifications import LLMProvider, LLMSpec
 
 
 class TestOpenAICompatibleClient:
@@ -37,7 +37,7 @@ class TestOpenAICompatibleClient:
             api_key="test-key",  # pragma: allowlist secret  # pragma: allowlist secret
         )
 
-        with patch("hermes.adapters.llm_client.OpenAI"):
+        with patch("ceres.adapters.llm_client.OpenAI"):
             client = OpenAICompatibleClient(spec)
             assert client.spec.base_url == "https://api.together.xyz/v1"
 
@@ -51,7 +51,7 @@ class TestOpenAICompatibleClient:
             api_key="test-key",  # pragma: allowlist secret  # pragma: allowlist secret
         )
 
-        with patch("hermes.adapters.llm_client.OpenAI"):
+        with patch("ceres.adapters.llm_client.OpenAI"):
             client = OpenAICompatibleClient(spec)
             assert client.provider_name == "Together.AI"
 
@@ -64,7 +64,7 @@ class TestOpenAICompatibleClient:
             api_key="test-key",  # pragma: allowlist secret  # pragma: allowlist secret
         )
 
-        with patch("hermes.adapters.llm_client.OpenAI"):
+        with patch("ceres.adapters.llm_client.OpenAI"):
             client = OpenAICompatibleClient(spec)
             assert client.provider_name == "OpenAI-Compatible"
 
@@ -78,7 +78,7 @@ class TestOpenAICompatibleClient:
             # No api_key provided
         )
 
-        with patch("hermes.adapters.llm_client.OpenAI") as mock_openai:
+        with patch("ceres.adapters.llm_client.OpenAI") as mock_openai:
             OpenAICompatibleClient(spec)
             # Should pass api_key to OpenAI (required by library)  # pragma: allowlist secret
             mock_openai.assert_called_once()
@@ -90,7 +90,7 @@ class TestOpenAICompatibleClient:
                 or len(call_kwargs["api_key"]) > 0  # pragma: allowlist secret
             )
 
-    @patch("hermes.adapters.llm_client.OpenAI")
+    @patch("ceres.adapters.llm_client.OpenAI")
     def test_invoke_returns_llm_response(self, mock_openai_class):
         """Should invoke API and return LLMResponse."""
         spec = LLMSpec(
@@ -133,7 +133,7 @@ class TestOpenAICompatibleClient:
             api_key="test",  # pragma: allowlist secret  # pragma: allowlist secret
         )
 
-        with patch("hermes.adapters.llm_client.OpenAI"):
+        with patch("ceres.adapters.llm_client.OpenAI"):
             client = OpenAICompatibleClient(spec)
             tokens = client.estimate_tokens("Hello, world!")
             assert tokens > 0
@@ -150,7 +150,7 @@ class TestOpenAICompatibleClient:
             output_cost_per_1k_tokens=Decimal("0.0008"),
         )
 
-        with patch("hermes.adapters.llm_client.OpenAI"):
+        with patch("ceres.adapters.llm_client.OpenAI"):
             client = OpenAICompatibleClient(spec)
             cost = client.calculate_cost(tokens_in=1000, tokens_out=500)
             expected = Decimal("0.0008") + (Decimal("0.0008") * Decimal("0.5"))
@@ -167,7 +167,7 @@ class TestOpenAICompatibleClient:
             output_cost_per_1k_tokens=Decimal("0.0"),
         )
 
-        with patch("hermes.adapters.llm_client.OpenAI"):
+        with patch("ceres.adapters.llm_client.OpenAI"):
             client = OpenAICompatibleClient(spec)
             cost = client.calculate_cost(tokens_in=1000, tokens_out=500)
             assert cost == Decimal("0.0")
@@ -185,13 +185,13 @@ class TestCustomLLMClientFactory:
             api_key="test",  # pragma: allowlist secret  # pragma: allowlist secret
         )
 
-        with patch("hermes.adapters.llm_client.OpenAI"):
+        with patch("ceres.adapters.llm_client.OpenAI"):
             client = create_llm_client(spec)
             assert isinstance(client, OpenAICompatibleClient)
 
     def test_factory_still_creates_existing_providers(self):
         """Factory should still work with existing providers."""
-        from hermes.adapters.llm_client import GroqClient, OpenAIClient
+        from ceres.adapters.llm_client import GroqClient, OpenAIClient
 
         # OpenAI
         spec_openai = LLMSpec(
@@ -199,7 +199,7 @@ class TestCustomLLMClientFactory:
             model="gpt-4",
             api_key="test",  # pragma: allowlist secret  # pragma: allowlist secret
         )
-        with patch("hermes.adapters.llm_client.OpenAI"):
+        with patch("ceres.adapters.llm_client.OpenAI"):
             client = create_llm_client(spec_openai)
             assert isinstance(client, OpenAIClient)
 
@@ -209,7 +209,7 @@ class TestCustomLLMClientFactory:
             model="llama-3.3-70b-versatile",
             api_key="test",  # pragma: allowlist secret
         )
-        with patch("hermes.adapters.llm_client.Groq"):
+        with patch("ceres.adapters.llm_client.Groq"):
             client = create_llm_client(spec_groq)
             assert isinstance(client, GroqClient)
 

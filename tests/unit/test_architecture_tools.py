@@ -194,7 +194,7 @@ def my_function():
             """
 import os
 from pathlib import Path
-from hermes.core.models import LLMResponse
+from ceres.core.models import LLMResponse
 """
         )
 
@@ -202,7 +202,7 @@ from hermes.core.models import LLMResponse
 
         assert "os" in result["imports"]
         assert "pathlib" in result["imports"]
-        assert "hermes.core.models" in result["imports"]
+        assert "ceres.core.models" in result["imports"]
 
     def test_validate_entities_detects_missing(self):
         """Should detect entities that don't exist in codebase."""
@@ -213,7 +213,7 @@ from hermes.core.models import LLMResponse
                 {
                     "name": "NonExistentClass",
                     "type": "class",
-                    "file": "hermes/fake/file.py",
+                    "file": "ceres/fake/file.py",
                 }
             ]
         }
@@ -284,7 +284,7 @@ class TestArchitectureIntegration:
                     "name": "TestEntity",
                     "type": "class",
                     "layer": "core",
-                    "file": "hermes/core/test.py",
+                    "file": "ceres/core/test.py",
                     "relationships": [],
                 }
             ],

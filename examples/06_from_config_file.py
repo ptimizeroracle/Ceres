@@ -5,8 +5,8 @@ This example shows how to define pipelines in configuration files
 for easy management and version control.
 """
 
-from hermes.api.pipeline import Pipeline
-from hermes.config import ConfigLoader
+from ceres.api.pipeline import Pipeline
+from ceres.config import ConfigLoader
 
 # Load configuration from YAML
 print("Loading configuration from YAML...")

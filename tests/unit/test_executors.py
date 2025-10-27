@@ -5,13 +5,13 @@ from decimal import Decimal
 import pandas as pd
 import pytest
 
-from hermes.orchestration import (
+from ceres.orchestration import (
     AsyncExecutor,
     ExecutionContext,
     StreamingExecutor,
     SyncExecutor,
 )
-from hermes.stages.pipeline_stage import PipelineStage
+from ceres.stages.pipeline_stage import PipelineStage
 
 
 class MockStage(PipelineStage):
@@ -23,7 +23,7 @@ class MockStage(PipelineStage):
 
     def validate_input(self, input_data, context):
         """Validate input."""
-        from hermes.core.models import ValidationResult
+        from ceres.core.models import ValidationResult
 
         return ValidationResult(is_valid=True, errors=[])
 
@@ -36,7 +36,7 @@ class MockStage(PipelineStage):
 
     def estimate_cost(self, input_data, context):
         """Estimate cost."""
-        from hermes.core.models import CostEstimate
+        from ceres.core.models import CostEstimate
 
         return CostEstimate(
             total_cost=Decimal("0.0"),
@@ -117,8 +117,8 @@ class TestStreamingExecutor:
 
     def test_streaming_executor_execute(self):
         """Test streaming executor execution."""
-        from hermes.core.specifications import DatasetSpec, DataSourceType
-        from hermes.stages.data_loader_stage import DataLoaderStage
+        from ceres.core.specifications import DatasetSpec, DataSourceType
+        from ceres.stages.data_loader_stage import DataLoaderStage
 
         StreamingExecutor(chunk_size=2)
         context = ExecutionContext()
@@ -154,8 +154,8 @@ class TestStreamingExecutor:
 
     def test_streaming_executor_with_single_chunk(self):
         """Test streaming with data smaller than chunk size."""
-        from hermes.core.specifications import DatasetSpec, DataSourceType
-        from hermes.stages.data_loader_stage import DataLoaderStage
+        from ceres.core.specifications import DatasetSpec, DataSourceType
+        from ceres.stages.data_loader_stage import DataLoaderStage
 
         StreamingExecutor(chunk_size=100)
         context = ExecutionContext()

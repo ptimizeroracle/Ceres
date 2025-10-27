@@ -2,7 +2,7 @@
 Example: Custom LLM Provider via Plugin Registry.
 
 Demonstrates how to create and register a custom LLM provider without
-modifying core Hermes code. This enables integration with any LLM API.
+modifying core Ceres code. This enables integration with any LLM API.
 
 In this example, we'll create a custom provider for Replicate API.
 """
@@ -13,10 +13,10 @@ from decimal import Decimal
 
 import pandas as pd
 
-from hermes.adapters import LLMClient, provider
-from hermes.api import PipelineBuilder
-from hermes.core.models import LLMResponse
-from hermes.core.specifications import LLMSpec
+from ceres.adapters import LLMClient, provider
+from ceres.api import PipelineBuilder
+from ceres.core.models import LLMResponse
+from ceres.core.specifications import LLMSpec
 
 
 @provider("replicate")
@@ -191,7 +191,7 @@ def example_2_multiple_custom_providers():
             return len(text.split())
 
     # List all available providers
-    from hermes.adapters.provider_registry import ProviderRegistry
+    from ceres.adapters.provider_registry import ProviderRegistry
 
     providers = ProviderRegistry.list_providers()
     print("\n📦 Available LLM Providers:")
@@ -260,7 +260,7 @@ def example_3_provider_with_complex_config():
 
 
 if __name__ == "__main__":
-    print("\n🪽 Hermes: Custom LLM Provider Examples\n")
+    print("\n🌾 Ceres: Custom LLM Provider Examples\n")
 
     # Note: example_1 requires REPLICATE_API_TOKEN environment variable
     # Uncomment to run if you have Replicate access:
@@ -276,6 +276,6 @@ if __name__ == "__main__":
     print("\n💡 Key Takeaways:")
     print("  1. Use @provider decorator to register custom providers")
     print("  2. Implement invoke() and estimate_tokens() methods")
-    print("  3. Custom providers work seamlessly with Hermes pipelines")
+    print("  3. Custom providers work seamlessly with Ceres pipelines")
     print("  4. No core code modification needed!")
     print("\n")

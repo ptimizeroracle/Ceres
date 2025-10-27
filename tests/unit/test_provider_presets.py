@@ -5,8 +5,8 @@ from decimal import Decimal
 import pandas as pd
 import pytest
 
-from hermes.api.pipeline_builder import PipelineBuilder
-from hermes.core.specifications import LLMProvider, LLMProviderPresets, LLMSpec
+from ceres.api.pipeline_builder import PipelineBuilder
+from ceres.core.specifications import LLMProvider, LLMProviderPresets, LLMSpec
 
 
 class TestLLMProviderPresets:

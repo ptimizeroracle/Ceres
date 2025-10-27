@@ -12,12 +12,12 @@ from decimal import Decimal
 
 import pandas as pd
 
-from hermes import PipelineBuilder
-from hermes.adapters import ProviderRegistry, provider
-from hermes.adapters.llm_client import LLMClient
-from hermes.core.models import LLMResponse
-from hermes.orchestration.execution_context import ExecutionContext
-from hermes.stages import PipelineStage, stage
+from ceres import PipelineBuilder
+from ceres.adapters import ProviderRegistry, provider
+from ceres.adapters.llm_client import LLMClient
+from ceres.core.models import LLMResponse
+from ceres.orchestration.execution_context import ExecutionContext
+from ceres.stages import PipelineStage, stage
 
 # ============================================================================
 # EXAMPLE 1: Custom LLM Provider (for non-OpenAI-compatible APIs)
@@ -167,7 +167,7 @@ def demo_custom_stage():
     )
 
     # Build pipeline with custom stage
-    from hermes.stages import RawTextParser
+    from ceres.stages import RawTextParser
 
     pipeline = (
         PipelineBuilder.create()
@@ -223,7 +223,7 @@ def demo_list_plugins():
     print("DEMO 3: Plugin Discovery")
     print("=" * 80)
 
-    from hermes.stages import StageRegistry
+    from ceres.stages import StageRegistry
 
     print("\n🔌 Available LLM Providers:")
     providers = ProviderRegistry.list_providers()

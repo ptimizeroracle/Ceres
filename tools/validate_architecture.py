@@ -23,7 +23,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 ARCHITECTURE_DIR = PROJECT_ROOT / "docs" / "architecture"
 MODEL_FILE = ARCHITECTURE_DIR / "model.yaml"
-SOURCE_DIR = PROJECT_ROOT / "hermes"
+SOURCE_DIR = PROJECT_ROOT / "ceres"
 
 
 class ValidationResult:
@@ -248,8 +248,8 @@ def validate_layer_dependencies(model: dict, codebase: dict, result: ValidationR
 
         # Check imports
         for import_path in parsed["imports"]:
-            # Check if import is from hermes
-            if not import_path.startswith("hermes."):
+            # Check if import is from ceres
+            if not import_path.startswith("ceres."):
                 continue
 
             # Extract layer from import
@@ -257,7 +257,7 @@ def validate_layer_dependencies(model: dict, codebase: dict, result: ValidationR
             if len(parts) < 2:
                 continue
 
-            imported_layer = parts[1]  # e.g., "hermes.api.pipeline" -> "api"
+            imported_layer = parts[1]  # e.g., "ceres.api.pipeline" -> "api"
 
             # Skip if importing from own layer
             if imported_layer == entity_layer:
@@ -344,7 +344,7 @@ def find_undocumented_classes(model: dict, codebase: dict, result: ValidationRes
     # Find all classes in codebase
     all_classes = set()
     for file_path, parsed in codebase.items():
-        if not file_path.startswith("hermes/"):
+        if not file_path.startswith("ceres/"):
             continue
 
         for cls in parsed.get("classes", []):
@@ -420,7 +420,7 @@ def main(quick: bool = False):
     Args:
         quick: If True, skip expensive checks (for pre-commit hook)
     """
-    print("Hermes Architecture Model Validator")
+    print("Ceres Architecture Model Validator")
     print("=" * 60)
 
     # Load model

@@ -2,7 +2,7 @@
 
 import pytest
 
-from hermes.utils import (
+from ceres.utils import (
     NetworkError,
     RateLimitError,
     RetryHandler,

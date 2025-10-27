@@ -7,7 +7,7 @@ large datasets that don't fit in memory.
 
 import pandas as pd
 
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 
 # For demonstration, create a sample file

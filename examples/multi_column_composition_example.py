@@ -12,7 +12,7 @@ Use Cases:
 
 import pandas as pd
 
-from hermes.api import PipelineBuilder, PipelineComposer
+from ceres.api import PipelineBuilder, PipelineComposer
 
 # Sample data: E-commerce product matching
 product_data = pd.DataFrame(

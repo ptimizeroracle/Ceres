@@ -5,13 +5,13 @@
 #
 # Requirements:
 # - macOS with Apple Silicon (M1/M2/M3/M4)
-# - pip install hermes[mlx]
+# - pip install ceres[mlx]
 # - HuggingFace token: export HUGGING_FACE_HUB_TOKEN="your_token"
 #
 # Setup:
-# 1. Install MLX: pip install hermes[mlx]
+# 1. Install MLX: pip install ceres[mlx]
 # 2. Set token: export HUGGING_FACE_HUB_TOKEN="your_token"
-# 3. Run: hermes process --config examples/10_mlx_qwen3_local.yaml
+# 3. Run: ceres process --config examples/10_mlx_qwen3_local.yaml
 #
 # Benefits:
 # - 100% Free (no API costs)

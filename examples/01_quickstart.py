@@ -7,7 +7,7 @@ and the Builder API (full control, explicit configuration).
 
 import pandas as pd
 
-from hermes import PipelineBuilder, QuickPipeline
+from ceres import PipelineBuilder, QuickPipeline
 
 # Create sample data
 data = pd.DataFrame(

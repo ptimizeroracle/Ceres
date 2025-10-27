@@ -5,7 +5,7 @@ from decimal import Decimal
 import pandas as pd
 import pytest
 
-from hermes.api.quick import QuickPipeline
+from ceres.api.quick import QuickPipeline
 
 
 class TestQuickPipeline:

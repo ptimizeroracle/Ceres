@@ -7,7 +7,7 @@ responses using JSON output.
 
 import pandas as pd
 
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 # Sample product descriptions
 data = pd.DataFrame(

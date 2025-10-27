@@ -7,7 +7,7 @@ during pipeline execution.
 
 import pandas as pd
 
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 # Create larger dataset
 data = pd.DataFrame(

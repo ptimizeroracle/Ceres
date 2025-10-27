@@ -3,8 +3,8 @@
 import pandas as pd
 import pytest
 
-from hermes import PipelineBuilder
-from hermes.core.specifications import (
+from ceres import PipelineBuilder
+from ceres.core.specifications import (
     DataSourceType,
     LLMProvider,
 )

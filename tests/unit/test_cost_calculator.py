@@ -2,7 +2,7 @@
 
 from decimal import Decimal
 
-from hermes.utils.cost_calculator import CostCalculator
+from ceres.utils.cost_calculator import CostCalculator
 
 
 class TestCostCalculator:
@@ -180,7 +180,7 @@ class TestCostCalculatorIntegration:
 
     def test_cost_tracker_uses_cost_calculator(self):
         """CostTracker.calculate_cost() should delegate to CostCalculator."""
-        from hermes.utils.cost_tracker import CostTracker
+        from ceres.utils.cost_tracker import CostTracker
 
         tracker = CostTracker(
             input_cost_per_1k=Decimal("0.001"), output_cost_per_1k=Decimal("0.002")
@@ -200,7 +200,7 @@ class TestCostCalculatorIntegration:
 
     def test_consistency_across_components(self):
         """All components should produce same cost for same inputs."""
-        from hermes.utils.cost_tracker import CostTracker
+        from ceres.utils.cost_tracker import CostTracker
 
         tokens_in, tokens_out = 1000, 500
         input_cost_per_1k = Decimal("0.00015")

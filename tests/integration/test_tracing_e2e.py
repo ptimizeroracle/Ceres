@@ -23,8 +23,8 @@ class TestFullPipelineTracing:
         ├── stage.ResponseParser
         └── stage.ResultWriter
         """
-        from hermes import PipelineBuilder
-        from hermes.observability import (
+        from ceres import PipelineBuilder
+        from ceres.observability import (
             disable_tracing,
             enable_tracing,
         )
@@ -49,11 +49,11 @@ class TestFullPipelineTracing:
             # pipeline.add_observer(observer)
 
             # Execute pipeline
-            with patch("hermes.adapters.llm_client.OpenAIClient.invoke") as mock_invoke:
+            with patch("ceres.adapters.llm_client.OpenAIClient.invoke") as mock_invoke:
                 # Mock LLM response
                 from decimal import Decimal
 
-                from hermes.core.models import LLMResponse
+                from ceres.core.models import LLMResponse
 
                 mock_invoke.return_value = LLMResponse(
                     text="result",

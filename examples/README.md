@@ -99,10 +99,11 @@ if estimate.total_cost > MAX_BUDGET:
 ```
 
 ### Pattern 3: Progress Monitoring
+
 ```python
 # Progress bar and logging are enabled by default
 # Add custom observers if needed
-from hermes.orchestration import CostTrackingObserver
+from ceres.orchestration import CostTrackingObserver
 
 pipeline.add_observer(CostTrackingObserver(warning_threshold=0.8))
 ```

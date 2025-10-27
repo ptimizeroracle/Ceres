@@ -1849,7 +1849,7 @@ def create_custom_openai_compatible(
 **Example Usage**:
 
 ```python
-from hermes.core.specifications import LLMProviderPresets
+from ceres.core.specifications import LLMProviderPresets
 
 # Simple preset usage
 pipeline = (
@@ -2040,8 +2040,9 @@ pipeline.execute (root)
 - `service_name: str = "hermes-pipeline"` - Service name for traces
 
 **Example**:
+
 ```python
-from hermes.observability import enable_tracing
+from ceres.observability import enable_tracing
 
 # Console (development)
 enable_tracing(exporter="console")
@@ -2090,8 +2091,9 @@ opentelemetry-exporter-jaeger>=1.20.0  # Jaeger export
 ### Graceful Degradation
 
 If OpenTelemetry not installed:
+
 ```python
-from hermes.observability import enable_tracing
+from ceres.observability import enable_tracing
 
 enable_tracing()  # Raises helpful ImportError with install instructions
 is_tracing_enabled()  # Returns False (always)
@@ -2122,8 +2124,8 @@ is_tracing_enabled()  # Returns False (always)
 ### Usage Example
 
 ```python
-from hermes import PipelineBuilder
-from hermes.observability import enable_tracing
+from ceres import PipelineBuilder
+from ceres.observability import enable_tracing
 
 # Enable tracing
 enable_tracing(exporter="console")

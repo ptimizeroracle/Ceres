@@ -2,7 +2,7 @@
 Example: Custom Pipeline Stages via Stage Registry.
 
 Demonstrates how to create and inject custom processing stages into
-Hermes pipelines. This enables:
+Ceres pipelines. This enables:
 - RAG (Retrieval-Augmented Generation)
 - Content moderation
 - Data enrichment
@@ -14,9 +14,9 @@ import time
 
 import pandas as pd
 
-from hermes.api import PipelineBuilder
-from hermes.orchestration.execution_context import ExecutionContext
-from hermes.stages import JSONParser, PipelineStage, stage
+from ceres.api import PipelineBuilder
+from ceres.orchestration.execution_context import ExecutionContext
+from ceres.stages import JSONParser, PipelineStage, stage
 
 
 @stage("data_enrichment")
@@ -381,7 +381,7 @@ Provide a JSON response:
 
 
 if __name__ == "__main__":
-    print("\n🪽 Hermes: Custom Pipeline Stage Examples\n")
+    print("\n🌾 Ceres: Custom Pipeline Stage Examples\n")
 
     # Note: These examples require OPENAI_API_KEY
     # Uncomment to run:
@@ -394,7 +394,7 @@ if __name__ == "__main__":
     print("📋 Custom Stages Overview")
     print("=" * 60)
 
-    from hermes.stages.stage_registry import StageRegistry
+    from ceres.stages.stage_registry import StageRegistry
 
     # List registered stages
     stages = StageRegistry.list_stages()

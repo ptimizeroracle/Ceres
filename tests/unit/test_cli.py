@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 from click.testing import CliRunner
 
-from hermes.cli.main import cli
+from ceres.cli.main import cli
 
 
 class TestCLI:

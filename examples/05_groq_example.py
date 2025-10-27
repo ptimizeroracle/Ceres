@@ -11,7 +11,7 @@ import os
 import pandas as pd
 from dotenv import load_dotenv
 
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")

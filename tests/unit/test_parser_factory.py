@@ -2,8 +2,8 @@
 
 import pytest
 
-from hermes.core.specifications import PromptSpec
-from hermes.stages import (
+from ceres.core.specifications import PromptSpec
+from ceres.stages import (
     JSONParser,
     RawTextParser,
     RegexParser,

@@ -10,9 +10,9 @@ from unittest.mock import MagicMock, patch
 import pandas as pd
 import pytest
 
-from hermes.api.pipeline import Pipeline
-from hermes.api.pipeline_composer import PipelineComposer
-from hermes.core.models import CostEstimate, ExecutionResult
+from ceres.api.pipeline import Pipeline
+from ceres.api.pipeline_composer import PipelineComposer
+from ceres.core.models import CostEstimate, ExecutionResult
 
 
 class TestPipelineComposerBasics:
@@ -137,7 +137,7 @@ class TestDependencyResolution:
 class TestComposerExecution:
     """Test actual execution of composed pipelines."""
 
-    @patch("hermes.api.pipeline.Pipeline.execute")
+    @patch("ceres.api.pipeline.Pipeline.execute")
     def test_execute_single_column(self, mock_execute):
         """Test executing single column pipeline."""
         # Setup
@@ -182,7 +182,7 @@ class TestComposerExecution:
         assert "output1" in result.data.columns
         assert len(result.data) == 2
 
-    @patch("hermes.api.pipeline.Pipeline.execute")
+    @patch("ceres.api.pipeline.Pipeline.execute")
     def test_execute_multiple_independent_columns(self, mock_execute):
         """Test executing multiple independent columns."""
         df = pd.DataFrame({"text": ["sample"]})

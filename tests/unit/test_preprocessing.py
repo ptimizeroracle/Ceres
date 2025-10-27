@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from hermes.utils.input_preprocessing import (
+from ceres.utils.input_preprocessing import (
     ControlCharRemover,
     PreprocessingStats,
     SpecialCharCleaner,

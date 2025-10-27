@@ -6,7 +6,7 @@ from uuid import uuid4
 
 import pandas as pd
 
-from hermes.core.models import (
+from ceres.core.models import (
     CostEstimate,
     ExecutionResult,
     ProcessingStats,
