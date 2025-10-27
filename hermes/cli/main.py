@@ -67,7 +67,7 @@ PROVIDER_METADATA = {
         "platform": "macOS (M1/M2/M3/M4)",
         "cost": "Free",
         "use_case": "Local inference, privacy, offline",
-        "requirements": "Apple Silicon Mac, pip install hermes[mlx]",
+        "requirements": "Apple Silicon Mac, pip install ceres[mlx]",
     },
 }
 
@@ -77,25 +77,25 @@ assert set(LLMProvider) == set(
 ), "PROVIDER_METADATA must include all LLMProvider values"
 
 
-HERMES_ART = r"""
- ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄       ▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄
-▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
-▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌   ▐░▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀
-▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌▐░▌ ▐░▌▐░▌▐░▌          ▐░▌
-▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░▌ ▐░▐░▌ ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄
-▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌  ▐░▌  ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
-▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀█░█▀▀ ▐░▌   ▀   ▐░▌▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌
-▐░▌       ▐░▌▐░▌          ▐░▌     ▐░▌  ▐░▌       ▐░▌▐░▌                    ▐░▌
-▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░▌      ▐░▌ ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄█░▌
-▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
- ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀
+CERES_ART = r"""
+ ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀
+▐░▌          ▐░▌          ▐░▌       ▐░▌▐░▌          ▐░▌
+▐░▌          ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄
+▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░▌          ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀█░█▀▀ ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌
+▐░▌          ▐░▌          ▐░▌     ▐░▌  ▐░▌                    ▐░▌
+▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌      ▐░▌ ▐░█▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄█░▌
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+ ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀
 """
 
 
 def show_banner():
-    """Display the Hermes banner (centered, creative, robust)."""
+    """Display the Ceres banner (centered, creative, robust)."""
     # Color gradient: cyan to magenta
-    lines = HERMES_ART.strip().split("\n")
+    lines = CERES_ART.strip().split("\n")
     colored_lines = []
     colors = [
         "bright_cyan",
@@ -130,7 +130,7 @@ def show_banner():
 @click.pass_context
 def cli(ctx):
     """
-    🪽 HERMES - LLM Dataset Engine
+    🌾 CERES - LLM Dataset Engine
 
     Process tabular datasets using LLMs with production-grade reliability,
     cost control, and observability.
@@ -138,16 +138,16 @@ def cli(ctx):
     Examples:
 
         # Process a dataset
-        llm-dataset process --config config.yaml
+        ceres process --config config.yaml
 
         # Estimate cost before processing
-        llm-dataset estimate --config config.yaml
+        ceres estimate --config config.yaml
 
         # Resume from checkpoint
-        llm-dataset resume --session-id abc-123
+        ceres resume --session-id abc-123
 
         # Validate configuration
-        llm-dataset validate --config config.yaml
+        ceres validate --config config.yaml
     """
     # Show banner only for main commands (not for --help)
     if ctx.invoked_subcommand is not None:
@@ -179,7 +179,7 @@ def cli(ctx):
 @click.option(
     "--provider",
     type=click.Choice([p.value for p in LLMProvider]),
-    help="Override LLM provider from config (use 'hermes list-providers' to see all)",
+    help="Override LLM provider from config (use 'ceres list-providers' to see all)",
 )
 @click.option(
     "--model",
@@ -450,7 +450,7 @@ def process(
 @click.option(
     "--provider",
     type=click.Choice([p.value for p in LLMProvider]),
-    help="Override LLM provider from config (use 'hermes list-providers' to see all)",
+    help="Override LLM provider from config (use 'ceres list-providers' to see all)",
 )
 @click.option(
     "--model",
@@ -868,7 +868,7 @@ def list_providers():
     Examples:
 
         # List all providers
-        hermes list-providers
+        ceres list-providers
     """
     try:
         # Create table
@@ -914,12 +914,12 @@ def list_providers():
         # Usage examples
         console.print("\n[cyan]💡 Usage Examples:[/cyan]")
         console.print("  [dim]# Use OpenAI[/dim]")
-        console.print("  hermes process --provider openai --config config.yaml")
+        console.print("  ceres process --provider openai --config config.yaml")
         console.print("\n  [dim]# Use local MLX on Apple Silicon[/dim]")
-        console.print("  hermes process --provider mlx --config config.yaml")
+        console.print("  ceres process --provider mlx --config config.yaml")
         console.print("\n  [dim]# Use custom API (Ollama, vLLM, Together.AI)[/dim]")
         console.print(
-            "  hermes process --provider openai_compatible --config config.yaml"
+            "  ceres process --provider openai_compatible --config config.yaml"
         )
         console.print(
             "\n  [dim]💡 Tip: Set provider in your YAML config file or use --provider flag[/dim]\n"
