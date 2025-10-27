@@ -1,6 +1,6 @@
 # Example: Using Local Ollama
 #
-# This configuration demonstrates using Hermes with Ollama running locally.
+# This configuration demonstrates using Ceres with Ollama running locally.
 # Ollama is a free, open-source LLM runner that supports many models.
 #
 # Setup:

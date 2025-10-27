@@ -14,8 +14,8 @@
  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀
 ```
 
-[![Tests](https://github.com/ptimizeroracle/Hermes/actions/workflows/ci.yml/badge.svg)](https://github.com/ptimizeroracle/Hermes/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/ptimizeroracle/Hermes/branch/main/graph/badge.svg)](https://codecov.io/gh/ptimizeroracle/Hermes)
+[![Tests](https://github.com/ptimizeroracle/Ceres/actions/workflows/ci.yml/badge.svg)](https://github.com/ptimizeroracle/Ceres/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/ptimizeroracle/Ceres/branch/main/graph/badge.svg)](https://codecov.io/gh/ptimizeroracle/Ceres)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
@@ -301,7 +301,7 @@ pipeline = (
 
 **Requirements**:
 - macOS with Apple Silicon (M1/M2/M3/M4)
-- Install with: `pip install hermes[mlx]`
+- Install with: `pip install ceres[mlx]`
 
 ### 8. Provider Presets (Simplified Configuration)
 
@@ -443,7 +443,7 @@ result = (
 
 ## CLI Usage
 
-Hermes includes a powerful command-line interface for processing datasets without writing code.
+Ceres includes a powerful command-line interface for processing datasets without writing code.
 
 ### List Available Providers
 
@@ -550,10 +550,10 @@ The SDK follows a **layered architecture**:
 | **Azure OpenAI** | Cloud (All) | $$ | Enterprise, compliance | `AZURE_OPENAI_API_KEY` |
 | **Anthropic** | Cloud (All) | $$$ | Long context, Claude models | `ANTHROPIC_API_KEY` |
 | **Groq** | Cloud (All) | Free tier | Fast inference, development | `GROQ_API_KEY` |
-| **MLX** | macOS (M1/M2/M3/M4) | Free | Local, private, offline | `pip install hermes[mlx]` |
+| **MLX** | macOS (M1/M2/M3/M4) | Free | Local, private, offline | `pip install ceres[mlx]` |
 | **OpenAI-Compatible** | Custom/Local/Cloud | Varies | Ollama, vLLM, Together.AI | `base_url` + optional API key |
 
-Run `hermes list-providers` to see detailed information about each provider.
+Run `ceres list-providers` to see detailed information about each provider.
 
 ## Use Cases
 
@@ -663,7 +663,7 @@ uv run pytest tests/test_pipeline.py
 
 Contributions welcome! Please follow:
 
-1. Fork the repository at https://github.com/ptimizeroracle/Hermes
+1. Fork the repository at https://github.com/ptimizeroracle/Ceres
 2. Create a feature branch
 3. Follow the existing code style (Black, Ruff)
 4. Add tests for new features
@@ -677,12 +677,12 @@ MIT License - see LICENSE file for details
 ## Acknowledgments
 
 - Built with [LlamaIndex](https://www.llamaindex.ai/) for LLM provider abstraction
-- Hermes adds batch processing, cost tracking, checkpointing, and configuration management on top of LlamaIndex's LLM clients
+- Ceres adds batch processing, cost tracking, checkpointing, and configuration management on top of LlamaIndex's LLM clients
 - Thanks to the open-source community
 
 ## Support
 
-- **Repository**: https://github.com/ptimizeroracle/Hermes
+- **Repository**: https://github.com/ptimizeroracle/Ceres
 - **Issues**: Open an issue on GitHub
 - **Discussions**: Use GitHub Discussions for questions
 - **Email**: git@binblok.com
@@ -698,7 +698,7 @@ MIT License - see LICENSE file for details
 - ✅ **OpenAI-Compatible Provider**: Support for Ollama, vLLM, Together.AI, and custom APIs
 - ✅ **Multi-Column Processing**: Generate multiple output columns with JSON parsing
 - ✅ **Pipeline Composition**: Chain pipelines with dependencies between columns
-- ✅ **CLI Provider Discovery**: `hermes list-providers` command to explore all providers
+- ✅ **CLI Provider Discovery**: `ceres list-providers` command to explore all providers
 - ✅ **Auto-Retry for Multi-Column**: Automatic retry now checks all output columns for failures
 - ✅ **Custom LLM Clients**: Extend `LLMClient` base class for exotic APIs
 

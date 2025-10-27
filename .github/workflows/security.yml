@@ -51,7 +51,7 @@ jobs:
 
     - name: Run bandit security scan
       run: |
-        uv run bandit -r hermes/ -c pyproject.toml || true
+        uv run bandit -r ceres/ -c pyproject.toml || true
 
   secrets-scan:
     name: Scan for Leaked Secrets

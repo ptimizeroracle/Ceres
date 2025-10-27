@@ -43,10 +43,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ptimizeroracle/Hermes"
-Repository = "https://github.com/ptimizeroracle/Hermes"
-Documentation = "https://github.com/ptimizeroracle/Hermes#readme"
-Issues = "https://github.com/ptimizeroracle/Hermes/issues"
+Homepage = "https://github.com/ptimizeroracle/Ceres"
+Repository = "https://github.com/ptimizeroracle/Ceres"
+Documentation = "https://github.com/ptimizeroracle/Ceres#readme"
+Issues = "https://github.com/ptimizeroracle/Ceres/issues"
 
 [project.optional-dependencies]
 dev = [

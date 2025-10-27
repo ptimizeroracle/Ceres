@@ -1,8 +1,8 @@
-# 🔬 Hermes - Complete Technical Reference
+# 🔬 Ceres - Complete Technical Reference
 
 **Version**: 1.0.0
 **Last Updated**: October 18, 2025
-**Purpose**: Comprehensive technical documentation of every component, class, design decision, and relationship in the Hermes LLM Dataset Engine.
+**Purpose**: Comprehensive technical documentation of every component, class, design decision, and relationship in the Ceres LLM Dataset Engine.
 
 **Quick Navigation**:
 - **Architecture Overview & Diagrams**: See [`ARCHITECTURE.md`](ARCHITECTURE.md) (auto-generated from `architecture/model.yaml`)
@@ -36,7 +36,7 @@
 
 ## 1.1 System Architecture
 
-Hermes follows a **5-layer architecture**:
+Ceres follows a **5-layer architecture**:
 
 ```mermaid
 graph TB
@@ -168,7 +168,7 @@ graph TB
 
 | Library | Version | Category | License | Why Chosen | Alternatives Considered |
 |---------|---------|----------|---------|------------|------------------------|
-| **llama-index** | >=0.12.0 | LLM | MIT | LLM provider clients (OpenAI, Anthropic, Groq). Hermes adds batch orchestration, cost tracking, checkpointing, YAML config. | LangChain (more complex), direct APIs (no abstraction) |
+| **llama-index** | >=0.12.0 | LLM | MIT | LLM provider clients (OpenAI, Anthropic, Groq). Ceres adds batch orchestration, cost tracking, checkpointing, YAML config. | LangChain (more complex), direct APIs (no abstraction) |
 | **llama-index-llms-openai** | >=0.3.0 | LLM | MIT | Official OpenAI integration | `openai` package (less abstraction) |
 | **llama-index-llms-azure-openai** | >=0.3.0 | LLM | MIT | Enterprise Azure support | Custom Azure client |
 | **llama-index-llms-anthropic** | >=0.3.0 | LLM | MIT | Claude integration | `anthropic` package (less abstraction) |
@@ -207,20 +207,20 @@ graph TB
 |-------|-----------|---------|----------|
 | **mlx** | mlx>=0.29.0, mlx-lm>=0.28.0 | Apple Silicon local inference | macOS only (M1/M2/M3/M4) |
 
-**Installation**: `pip install hermes[mlx]`
+**Installation**: `pip install ceres[mlx]`
 
 ## 2.2 Dependency Graph
 
 ```mermaid
 graph TD
-    Hermes[Hermes Core]
+    Ceres[Ceres Core]
 
-    Hermes --> LI[llama-index]
-    Hermes --> Pandas
-    Hermes --> Pydantic
-    Hermes --> Structlog
-    Hermes --> Click
-    Hermes --> Rich
+    Ceres --> LI[llama-index]
+    Ceres --> Pandas
+    Ceres --> Pydantic
+    Ceres --> Structlog
+    Ceres --> Click
+    Ceres --> Rich
 
     LI --> LIOAI[llama-index-llms-openai]
     LI --> LIAZ[llama-index-llms-azure]
@@ -230,14 +230,14 @@ graph TD
     Pandas --> Openpyxl[openpyxl]
     Pandas --> Polars
 
-    Hermes --> Tiktoken[tiktoken]
-    Hermes --> Tenacity[tenacity]
-    Hermes --> Tqdm[tqdm]
-    Hermes --> Jinja2[jinja2]
-    Hermes --> Prometheus[prometheus-client]
-    Hermes --> Dotenv[python-dotenv]
+    Ceres --> Tiktoken[tiktoken]
+    Ceres --> Tenacity[tenacity]
+    Ceres --> Tqdm[tqdm]
+    Ceres --> Jinja2[jinja2]
+    Ceres --> Prometheus[prometheus-client]
+    Ceres --> Dotenv[python-dotenv]
 
-    Hermes -.-> MLX[mlx + mlx-lm]
+    Ceres -.-> MLX[mlx + mlx-lm]
     MLX -.-> MLXMetal[mlx-metal]
 
     Polars --> PyArrow[pyarrow]
@@ -246,11 +246,11 @@ graph TD
     style MLXMetal stroke-dasharray: 5 5
 ```
 
-**Note**: Dashed lines indicate optional dependencies (`pip install hermes[mlx]`)
+**Note**: Dashed lines indicate optional dependencies (`pip install ceres[mlx]`)
 
 ### Critical Dependencies (Cannot Be Removed)
 
-1. **llama-index** - LLM provider clients (OpenAI, Anthropic, Groq, Azure). Hermes wraps these with LLMSpec/LLMClient for batch processing, cost tracking, unified config.
+1. **llama-index** - LLM provider clients (OpenAI, Anthropic, Groq, Azure). Ceres wraps these with LLMSpec/LLMClient for batch processing, cost tracking, unified config.
 2. **pandas** - Data manipulation backbone, used throughout
 3. **pydantic** - Configuration validation, type safety
 4. **structlog** - Structured logging, observability
@@ -269,7 +269,7 @@ graph TD
 
 ## 5.1 LLM Provider Overview
 
-Hermes supports multiple LLM providers through the **Adapter pattern**, allowing easy switching between providers without changing core logic.
+Ceres supports multiple LLM providers through the **Adapter pattern**, allowing easy switching between providers without changing core logic.
 
 ### Supported Providers
 
@@ -1455,7 +1455,7 @@ def test_budget_warnings():
 
 ## 5.1 LLM Provider Overview
 
-Hermes supports multiple LLM providers through the **Adapter pattern**, allowing easy switching between providers without changing core logic.
+Ceres supports multiple LLM providers through the **Adapter pattern**, allowing easy switching between providers without changing core logic.
 
 ### Supported Providers
 
@@ -1633,7 +1633,7 @@ tokens = len(text.split())
 **Import Error**:
 ```
 ImportError: MLX not installed. Install with:
-  pip install hermes[mlx]
+  pip install ceres[mlx]
 or:
   pip install mlx mlx-lm
 
@@ -1728,7 +1728,7 @@ Simplify LLM provider configuration by providing pre-configured specifications f
 
 ### Class: `LLMProviderPresets`
 
-**Location**: `hermes/core/specifications.py` (lines 301-453)
+**Location**: `ceres/core/specifications.py` (lines 301-453)
 
 **Responsibility**: Provide pre-validated LLMSpec instances for popular providers
 
@@ -1842,7 +1842,7 @@ def create_custom_openai_compatible(
 
 **New Method**: `with_llm_spec(spec: LLMSpec) -> PipelineBuilder`
 
-**Location**: `hermes/api/pipeline_builder.py` (lines 260-311)
+**Location**: `ceres/api/pipeline_builder.py` (lines 260-311)
 
 **Purpose**: Accept pre-built LLMSpec objects instead of individual parameters
 
@@ -1981,9 +1981,9 @@ pipeline.with_llm_spec(LLMProviderPresets.GPT4O_MINI)
 ### Purpose
 Provide distributed tracing with OpenTelemetry for production debugging and performance monitoring.
 
-### Module: `hermes/observability/`
+### Module: `ceres/observability/`
 
-**Location**: `hermes/observability/` (4 files, 140 lines)
+**Location**: `ceres/observability/` (4 files, 140 lines)
 
 **Responsibility**: Optional distributed tracing via OpenTelemetry
 
@@ -2037,7 +2037,7 @@ pipeline.execute (root)
 **Parameters**:
 - `exporter: str = "console"` - Exporter type (console or jaeger)
 - `endpoint: str | None = None` - Jaeger endpoint URL
-- `service_name: str = "hermes-pipeline"` - Service name for traces
+- `service_name: str = "ceres-pipeline"` - Service name for traces
 
 **Example**:
 
@@ -2086,7 +2086,7 @@ opentelemetry-sdk>=1.20.0        # SDK implementation
 opentelemetry-exporter-jaeger>=1.20.0  # Jaeger export
 ```
 
-**Installation**: `pip install hermes[observability]`
+**Installation**: `pip install ceres[observability]`
 
 ### Graceful Degradation
 
