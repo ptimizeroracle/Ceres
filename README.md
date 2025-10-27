@@ -1,28 +1,17 @@
 # Ceres - LLM Dataset Engine
 
 ```
-          _____                    _____                    _____                    _____                    _____
-         /\    \                  /\    \                  /\    \                  /\    \                  /\    \
-        /::\    \                /::\    \                /::\    \                /::\    \                /::\    \
-       /::::\    \              /::::\    \              /::::\    \              /::::\    \              /::::\    \
-      /::::::\    \            /::::::\    \            /::::::\    \            /::::::\    \            /::::::\    \
-     /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \
-    /:::/  \:::\    \        /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \
-   /:::/    \:::\    \      /::::\   \:::\    \      /::::\   \:::\    \      /::::\   \:::\    \       \:::\   \:::\    \
-  /:::/    / \:::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \    ___\:::\   \:::\    \
- /:::/    /   \:::\    \  /:::/\:::\   \:::\    \  /:::/\:::\   \:::\____\  /:::/\:::\   \:::\    \  /\   \:::\   \:::\    \
-/:::/____/     \:::\____\/:::/  \:::\   \:::\____\/:::/  \:::\   \:::|    |/:::/__\:::\   \:::\____\/::\   \:::\   \:::\____\
-\:::\    \      \::/    /\::/    \:::\  /:::/    /\::/   |::::\  /:::|____|\:::\   \:::\   \::/    /\:::\   \:::\   \::/    /
- \:::\    \      \/____/  \/____/ \:::\/:::/    /  \/____|:::::\/:::/    /  \:::\   \:::\   \/____/  \:::\   \:::\   \/____/
-  \:::\    \                       \::::::/    /         |:::::::::/    /    \:::\   \:::\    \       \:::\   \:::\    \
-   \:::\    \                       \::::/    /          |::|\::::/    /      \:::\   \:::\____\       \:::\   \:::\____\
-    \:::\    \                      /:::/    /           |::| \::/____/        \:::\   \::/    /        \:::\  /:::/    /
-     \:::\    \                    /:::/    /            |::|  ~|               \:::\   \/____/          \:::\/:::/    /
-      \:::\    \                  /:::/    /             |::|   |                \:::\    \               \::::::/    /
-       \:::\____\                /:::/    /              \::|   |                 \:::\____\               \::::/    /
-        \::/    /                \::/    /                \:|   |                  \::/    /                \::/    /
-         \/____/                  \/____/                  \|___|                   \/____/                  \/____/
-
+ ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀
+▐░▌          ▐░▌          ▐░▌       ▐░▌▐░▌          ▐░▌
+▐░▌          ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄
+▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░▌          ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀█░█▀▀ ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀█░▌
+▐░▌          ▐░▌          ▐░▌     ▐░▌  ▐░▌                    ▐░▌
+▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌      ▐░▌ ▐░█▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄█░▌
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+ ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀
 ```
 
 [![Tests](https://github.com/ptimizeroracle/Hermes/actions/workflows/ci.yml/badge.svg)](https://github.com/ptimizeroracle/Hermes/actions/workflows/ci.yml)
@@ -56,7 +45,7 @@ Production-grade SDK for batch processing tabular datasets with LLMs. Built on L
 The simplest way to get started - just provide your data, prompt, and model:
 
 ```python
-from hermes import QuickPipeline
+from ceres import QuickPipeline
 
 # Process data with smart defaults
 pipeline = QuickPipeline.create(
@@ -82,7 +71,7 @@ print(f"Total cost: ${result.costs.total_cost:.4f}")
 For advanced use cases requiring explicit configuration:
 
 ```python
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 # Build with explicit settings
 pipeline = (
@@ -115,9 +104,6 @@ uv add ceres
 
 # With MLX support (Apple Silicon only)
 uv add "ceres[mlx]"
-
-# With observability support
-uv add "ceres[observability]"
 ```
 
 ### Using pip
@@ -128,9 +114,6 @@ pip install ceres
 
 # With MLX support (Apple Silicon only)
 pip install "ceres[mlx]"
-
-# With observability support
-pip install "ceres[observability]"
 ```
 
 ### Set up API keys
@@ -159,7 +142,7 @@ export HUGGING_FACE_HUB_TOKEN="your-token-here"  # For model downloads
 ### 1. Simple Data Processing
 
 ```python
-from hermes import DatasetProcessor
+from ceres import DatasetProcessor
 
 # Minimal configuration for simple use cases
 processor = DatasetProcessor(
@@ -181,7 +164,7 @@ result = processor.run()
 ### 2. Structured Data Extraction
 
 ```python
-from hermes import PipelineBuilder
+from ceres import PipelineBuilder
 
 pipeline = (
     PipelineBuilder.create()
@@ -323,8 +306,8 @@ pipeline = (
 ### 8. Provider Presets (Simplified Configuration)
 
 ```python
-from hermes import PipelineBuilder
-from hermes.core.specifications import LLMProviderPresets
+from ceres import PipelineBuilder
+from ceres.core.specifications import LLMProviderPresets
 
 # Use pre-configured providers (80% less boilerplate!)
 pipeline = (
@@ -424,7 +407,7 @@ result = pipeline.execute()
 ### 11. Pipeline Composition (Multi-Column with Dependencies)
 
 ```python
-from hermes import PipelineComposer
+from ceres import PipelineComposer
 
 # Create multiple pipelines with dependencies
 composer = PipelineComposer(input_data=df)
@@ -460,13 +443,13 @@ result = (
 
 ## CLI Usage
 
-Ceres includes a powerful command-line interface for processing datasets without writing code.
+Hermes includes a powerful command-line interface for processing datasets without writing code.
 
 ### List Available Providers
 
 ```bash
 # See all supported LLM providers
-ceres list-providers
+hermes list-providers
 ```
 
 This shows:
@@ -480,25 +463,25 @@ This shows:
 
 ```bash
 # Basic usage
-ceres process --config config.yaml
+hermes process --config config.yaml
 
 # Override input/output
-ceres process --config config.yaml --input data.csv --output results.csv
+hermes process --config config.yaml --input data.csv --output results.csv
 
 # Override provider and model
-ceres process --config config.yaml --provider groq --model llama-3.3-70b-versatile
+hermes process --config config.yaml --provider groq --model llama-3.3-70b-versatile
 
 # Set budget limit
-ceres process --config config.yaml --max-budget 10.0
+hermes process --config config.yaml --max-budget 10.0
 
 # Dry run (estimate only, don't execute)
-ceres process --config config.yaml --dry-run
+hermes process --config config.yaml --dry-run
 
 # Estimate cost
-ceres estimate --config config.yaml --input data.csv
+hermes estimate --config config.yaml --input data.csv
 
 # Inspect data
-ceres inspect --input data.csv --head 10
+hermes inspect --input data.csv --head 10
 ```
 
 ### Example Config File
@@ -596,7 +579,7 @@ Run `hermes list-providers` to see detailed information about each provider.
 Enable distributed tracing with OpenTelemetry for production debugging:
 
 ```python
-from hermes.observability import enable_tracing
+from ceres.observability import enable_tracing
 
 # Console exporter (development)
 enable_tracing(exporter="console")
@@ -617,7 +600,7 @@ result = pipeline.execute()
 
 **Installation:**
 ```bash
-pip install hermes[observability]
+pip install ceres[observability]
 ```
 
 See [`examples/18_observability.py`](examples/18_observability.py) for complete examples.
