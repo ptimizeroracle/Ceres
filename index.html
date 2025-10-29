@@ -2603,7 +2603,7 @@
 <li><strong>Simple API</strong>: Fluent builder pattern for full control when needed</li>
 <li><strong>Reliability</strong>: Automatic retries, checkpointing, error policies (99.9% completion rate)</li>
 <li><strong>Cost Control</strong>: Pre-execution estimation, budget limits, real-time tracking</li>
-<li><strong>Observability</strong>: Progress bars, structured logging, metrics, cost reports</li>
+<li><strong>Observability</strong>: LlamaIndex-powered automatic LLM tracking (Langfuse, OpenTelemetry), progress bars, cost reports</li>
 <li><strong>Extensibility</strong>: Plugin architecture, custom stages, multiple LLM providers</li>
 <li><strong>Production Ready</strong>: Zero data loss on crashes, resume from checkpoint</li>
 <li><strong>Multiple Providers</strong>: OpenAI, Azure OpenAI, Anthropic Claude, Groq, MLX (Apple Silicon), and custom APIs</li>
@@ -2667,8 +2667,8 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># For Apple Silicon local inference</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ondine<span class="o">[</span>mlx<span class="o">]</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># For observability (OpenTelemetry)</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>pip<span class="w"> </span>install<span class="w"> </span>ondine<span class="o">[</span>observability<span class="o">]</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Observability is now built-in (OpenTelemetry + Langfuse)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># No separate install needed!</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># For development</span>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>pip<span class="w"> </span>install<span class="w"> </span>ondine<span class="o">[</span>dev<span class="o">]</span>
